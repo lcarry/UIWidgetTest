@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    >
+
+    <ImageView
+        android:id="@+id/teacher_small_imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"/>
+        <!--android:background="@color/colorAccent"/>-->
+
+    <TextView
+        android:id="@+id/teacher_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="left"
+
+        android:ellipsize="end"
+        android:text="New name"/>
+        <!--android:maxLines="1" android:background="@color/colorPrimary"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/teacher_status_textView"-->
+        <!--android:layout_width="80dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_weight="0.15"-->
+        <!--android:maxLines="1"-->
+        <!--android:ellipsize="end"-->
+        <!--android:text="New status" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/teacher_time_textView"-->
+        <!--android:layout_width="80dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_weight="0.15"-->
+        <!--android:maxLines="1"-->
+        <!--android:ellipsize="end"-->
+        <!--android:text="New time" />-->
+</LinearLayout>

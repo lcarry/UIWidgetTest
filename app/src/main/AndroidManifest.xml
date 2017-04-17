@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lcarry.uiwidgettest">
+
+    <!-- 这个权限用于获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 这个权限用于获取系统启动完成状态 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".UILayoutTestActivity" />
+        <activity android:name=".UIRelativeActivity" />
+        <activity android:name=".UIConstraintLayoutTestActivity" />
+        <activity android:name=".UICustomerActivity" />
+        <activity android:name=".ListViewActivity" />
+        <activity android:name="com.example.lcarry.teacherlist.RecyclerViewActivity" />
+        <activity android:name="com.example.lcarry.messagetest.UIBestPracticeActivity" />
+        <activity android:name="com.example.lcarry.fragmenttest.UIFragmentTestActivity" />
+        <activity android:name="com.example.lcarry.fragmentbestpractice.UIFragmentBestPracticeActivity" />
+        <activity android:name="com.example.lcarry.fragmentbestpractice.NewsContentActivity" />
+
+        <receiver
+            android:name="com.example.lcarry.fragmentbestpractice.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.example.lcarry.broadcastTest.UIBroadcastTestActivity" />
+
+        <receiver
+            android:name="com.example.lcarry.broadcastTest.MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="100">
+                <action android:name="com.example.lcarry.broadcastTest.MY_BROADCAST" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.example.lcarry.broadcastTest.UILogoffTestActivity" />
+        <activity android:name="com.example.lcarry.broadcastTest.UILogoffTestLoginActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+
+        </activity>
+    </application>
+
+</manifest>

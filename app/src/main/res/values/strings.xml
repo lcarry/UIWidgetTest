@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UIWidgetTest</string>
+    <string name="logoff_err_title">请注意</string>
+    <string name="logoff_err_desc">您的账号已在其它地点登录或者本次登录已失效。</string>
+</resources>
