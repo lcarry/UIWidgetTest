@@ -3,6 +3,57 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    productFlavors {
+        // Define separate dev and prod product flavors.
+        dev {
+            // dev utilizes minSDKVersion = 21 to allow the Android gradle plugin
+            // to pre-dex each module and produce an APK that can be tested on
+            // Android Lollipop without time consuming dex merging processes.
+            manifestPlaceholders = [CHANNEL_NAME: "DEV"]
+            minSdkVersion 21
+        }
+        prod {
+            // The actual minSdkVersion for the application.
+            manifestPlaceholders = [CHANNEL_NAME: "PROD"]
+            minSdkVersion 16
+        }
+
+        //多渠道打包
+        yingyongbao {
+            manifestPlaceholders = [CHANNEL_NAME: "YINGYONGBAO"]
+            minSdkVersion 16
+        }
+        huawei {
+            manifestPlaceholders = [CHANNEL_NAME: "HUAWEI"]
+            minSdkVersion 16
+        }
+        xiaomi {
+            manifestPlaceholders = [CHANNEL_NAME: "XIAOMI"]
+            minSdkVersion 16
+        }
+        phone360 {
+            manifestPlaceholders = [CHANNEL_NAME: "PHONE360"]
+            minSdkVersion 16
+        }
+        wandoujia {
+            manifestPlaceholders = [CHANNEL_NAME: "WANDOUJIA"]
+            minSdkVersion 16
+        }
+        baiduphone {
+            manifestPlaceholders = [CHANNEL_NAME: "BAIDUPHONE"]
+            minSdkVersion 16
+        }
+        phone91 {
+            manifestPlaceholders = [CHANNEL_NAME: "PHONE91"]
+            minSdkVersion 16
+        }
+        anzhuo {
+            manifestPlaceholders = [CHANNEL_NAME: "ANZHUO"]
+            minSdkVersion 16
+        }
+    }
+
     defaultConfig {
         applicationId "com.example.lcarry.uiwidgettest"
         minSdkVersion 14
@@ -11,12 +62,31 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            storeFile file(KEY_PATH)
+            storePassword KEY_PASS
+            keyAlias ALIAS_NAME
+            keyPassword ALIAS_PASS
+        }
+//        release {
+//            storeFile file("E:/work/lcarryapp.keystore.jks")
+//            storePassword "123456"
+//            keyAlias "lcarry"
+//            keyPassword "123456"
+//        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
+
+
 }
 
 dependencies {

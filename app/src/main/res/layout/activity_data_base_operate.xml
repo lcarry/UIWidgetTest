@@ -1,49 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.example.lcarry.databasetest.DataBaseOperateActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_create_database"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send Broadcast"
+        android:text="Create Database"
         />
 
     <Button
-        android:id="@+id/button_logoffTest"
+        android:id="@+id/button_insert_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Logoff Broadcast"
+        android:text="Add Data"
         />
 
     <Button
-        android:id="@+id/button_filePersistence"
+        android:id="@+id/button_update_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button filePersistence"
-        />
-
-
-    <Button
-        android:id="@+id/button_call"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button call phone"
+        android:text="Update Data"
         />
 
     <Button
-        android:id="@+id/button_read_contacts"
+        android:id="@+id/button_delete_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Read Contacts"
+        android:text="Delete Data"
         />
 
     <Button
-        android:id="@+id/button_database"
+        android:id="@+id/button_query_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DataBase operate"
+        android:text="Query Data"
         />
 </LinearLayout>

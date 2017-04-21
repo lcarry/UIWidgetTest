@@ -1,22 +1,28 @@
 package com.example.lcarry.broadcastTest;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.lcarry.broadcastTest.base.BaseActivity;
-import com.example.lcarry.fragmentbestpractice.UIFragmentBestPracticeActivity;
-import com.example.lcarry.fragmenttest.UIFragmentTestActivity;
+import com.example.lcarry.contactstest.ContactsTestActivity;
+import com.example.lcarry.databasetest.DataBaseOperateActivity;
+import com.example.lcarry.datapersistance.filepersistance.UIFilePersistenceActivity;
 import com.example.lcarry.uiwidgettest.R;
 
-public class UIBroadcastTestActivity extends BaseActivity implements View.OnClickListener {
+public class UIBroadcastTestActivity extends AppCompatActivity implements View.OnClickListener {
 
     private IntentFilter mIntentFilter;
     private LocalReceiver mLocalReceiver;
@@ -44,6 +50,18 @@ public class UIBroadcastTestActivity extends BaseActivity implements View.OnClic
         Button buttonLogoff = (Button)findViewById(R.id.button_logoffTest);
         buttonLogoff.setOnClickListener(this);
 
+        Button buttonFilePersistance = (Button)findViewById(R.id.button_filePersistence);
+        buttonFilePersistance.setOnClickListener(this);
+
+        Button buttonCall = (Button)findViewById(R.id.button_call);
+        buttonCall.setOnClickListener(this);
+
+        Button buttonReadContacts = (Button)findViewById(R.id.button_read_contacts);
+        buttonReadContacts.setOnClickListener(this);
+
+
+        Button buttonDatabase = (Button)findViewById(R.id.button_database);
+        buttonDatabase.setOnClickListener(this);
     }
 
     @Override
@@ -71,6 +89,31 @@ public class UIBroadcastTestActivity extends BaseActivity implements View.OnClic
                 showUILogoffTestActivity("showUILogoffTestActivity");
             }
             break;
+            case R.id.button_filePersistence: {
+                showUIFilePersistenceActivity("showUIFilePersistenceActivity");
+            }
+            break;
+            case R.id.button_call: {
+                //拨打电话，运行时权限
+                if (ContextCompat.checkSelfPermission(UIBroadcastTestActivity.this,
+                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(UIBroadcastTestActivity.this,
+                            new String[]{Manifest.permission.CALL_PHONE},1);
+                } else
+                    showCallPhone("showCallPhone");
+            }
+            break;
+            case R.id.button_read_contacts: {
+                showContactsTestActivity("showContactsTestActivity");
+            }
+            break;
+            case R.id.button_database: {
+                showDatabaseOperateActivity("showDatabaseOperateActivity");
+            }
+            break;
+
+
             default:
                 break;
         }
@@ -92,9 +135,62 @@ public class UIBroadcastTestActivity extends BaseActivity implements View.OnClic
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        switch (requestCode){
+            case 1:
+            {
+                if (grantResults.length >0 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                    showCallPhone("showCallPhone");
+                else
+                    Toast.makeText(UIBroadcastTestActivity.this,
+                            "You Denied The Permission",Toast.LENGTH_SHORT).show();
+            }
+            break;
+            default:
+                break;
+        }
+
+    }
+
     public void showUILogoffTestActivity(String strName) {
         Intent intent = new Intent(UIBroadcastTestActivity.this, UILogoffTestActivity.class);
         startActivity(intent);
         Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
     }
+
+    public void showUIFilePersistenceActivity(String strName) {
+        Intent intent = new Intent(UIBroadcastTestActivity.this, UIFilePersistenceActivity.class);
+        startActivity(intent);
+        Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showCallPhone(String strName) {
+        try {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse("tel:13810590092"));
+            startActivity(intent);
+            Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void showContactsTestActivity(String strName) {
+        Intent intent = new Intent(UIBroadcastTestActivity.this, ContactsTestActivity.class);
+        startActivity(intent);
+        Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void showDatabaseOperateActivity(String strName) {
+        Intent intent = new Intent(UIBroadcastTestActivity.this, DataBaseOperateActivity.class);
+        startActivity(intent);
+        Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
+    }
+
 }
