@@ -1,15 +1,19 @@
 package com.example.lcarry.broadcastTest;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +24,8 @@ import android.widget.Toast;
 import com.example.lcarry.contactstest.ContactsTestActivity;
 import com.example.lcarry.databasetest.DataBaseOperateActivity;
 import com.example.lcarry.datapersistance.filepersistance.UIFilePersistenceActivity;
+import com.example.lcarry.multimedia.MultimediaActivity;
+import com.example.lcarry.notification.UINotificationActivity;
 import com.example.lcarry.uiwidgettest.R;
 
 public class UIBroadcastTestActivity extends AppCompatActivity implements View.OnClickListener {
@@ -62,6 +68,13 @@ public class UIBroadcastTestActivity extends AppCompatActivity implements View.O
 
         Button buttonDatabase = (Button)findViewById(R.id.button_database);
         buttonDatabase.setOnClickListener(this);
+
+
+        Button buttonSendNotice = (Button)findViewById(R.id.button_send_notice);
+        buttonSendNotice.setOnClickListener(this);
+
+        Button buttonMultimedia = (Button)findViewById(R.id.button_multimedia);
+        buttonMultimedia.setOnClickListener(this);
     }
 
     @Override
@@ -110,6 +123,15 @@ public class UIBroadcastTestActivity extends AppCompatActivity implements View.O
             break;
             case R.id.button_database: {
                 showDatabaseOperateActivity("showDatabaseOperateActivity");
+            }
+            break;
+
+            case R.id.button_send_notice: {
+                showUINotificationActivity("showUINotificationActivity");
+            }
+            break;
+            case R.id.button_multimedia: {
+                showUIMultimediaActivity("showUIMultimediaActivity");
             }
             break;
 
@@ -189,6 +211,17 @@ public class UIBroadcastTestActivity extends AppCompatActivity implements View.O
 
     public void showDatabaseOperateActivity(String strName) {
         Intent intent = new Intent(UIBroadcastTestActivity.this, DataBaseOperateActivity.class);
+        startActivity(intent);
+        Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
+    }
+    public void showUINotificationActivity(String strName) {
+        Intent intent = new Intent(UIBroadcastTestActivity.this, UINotificationActivity.class);
+        startActivity(intent);
+        Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showUIMultimediaActivity(String strName) {
+        Intent intent = new Intent(UIBroadcastTestActivity.this, MultimediaActivity.class);
         startActivity(intent);
         Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
     }
