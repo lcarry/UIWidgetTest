@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lcarry.webTest.HttpUrlConnectionTestActivity">
+
+    <Button
+        android:id="@+id/button_clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear Response"
+        />
+
+    <Button
+        android:id="@+id/button_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Request HttpURLConnection"
+        />
+
+
+    <Button
+        android:id="@+id/button_send_okhttp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Request OkHttp"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/response_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </ScrollView>
+
+</LinearLayout>

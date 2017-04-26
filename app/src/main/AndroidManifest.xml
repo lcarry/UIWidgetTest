@@ -20,6 +20,9 @@
     <!-- 这个权限是android4.4以前访问SD卡应用关联目录的 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!-- 这个权限是访问网络权限（支持Webview显示网页等） -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -57,13 +60,11 @@
         </receiver>
 
         <activity android:name="com.example.lcarry.broadcastTest.UIBroadcastTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <receiver
@@ -107,13 +108,7 @@
 
         <activity android:name="com.example.lcarry.notification.UINotificationActivity" />
         <activity android:name="com.example.lcarry.notification.NotificationActivity" />
-        <activity android:name="com.example.lcarry.multimedia.MultimediaActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name="com.example.lcarry.multimedia.MultimediaActivity" />
         <activity android:name="com.example.lcarry.multimedia.CameraAlbumTestActivity" />
 
         <provider
@@ -127,7 +122,10 @@
         </provider>
 
         <activity android:name="com.example.lcarry.multimedia.PlayAudioActivity" />
-        <activity android:name="com.example.lcarry.multimedia.PlayVideoActivity"></activity>
+        <activity android:name="com.example.lcarry.multimedia.PlayVideoActivity" />
+        <activity android:name="com.example.lcarry.webTest.WebViewTestActivity" />
+        <activity android:name="com.example.lcarry.webTest.WebTestActivity" />
+        <activity android:name="com.example.lcarry.webTest.HttpUrlConnectionTestActivity"></activity>
     </application>
 
 </manifest>

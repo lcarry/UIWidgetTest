@@ -61,4 +61,12 @@
         android:layout_height="wrap_content"
         android:text="Multimedia"
         />
+
+    <Button
+        android:id="@+id/button_webTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WebTest"
+        />
+
 </LinearLayout>

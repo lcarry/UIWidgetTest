@@ -27,6 +27,8 @@ import com.example.lcarry.datapersistance.filepersistance.UIFilePersistenceActiv
 import com.example.lcarry.multimedia.MultimediaActivity;
 import com.example.lcarry.notification.UINotificationActivity;
 import com.example.lcarry.uiwidgettest.R;
+import com.example.lcarry.webTest.WebTestActivity;
+import com.example.lcarry.webTest.WebViewTestActivity;
 
 public class UIBroadcastTestActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -75,6 +77,9 @@ public class UIBroadcastTestActivity extends AppCompatActivity implements View.O
 
         Button buttonMultimedia = (Button)findViewById(R.id.button_multimedia);
         buttonMultimedia.setOnClickListener(this);
+
+        Button buttonWebTest = (Button)findViewById(R.id.button_webTest);
+        buttonWebTest.setOnClickListener(this);
     }
 
     @Override
@@ -134,6 +139,12 @@ public class UIBroadcastTestActivity extends AppCompatActivity implements View.O
                 showUIMultimediaActivity("showUIMultimediaActivity");
             }
             break;
+            case R.id.button_webTest: {
+                showWebTestActivity("showWebTestActivity");
+            }
+            break;
+
+
 
 
             default:
@@ -222,6 +233,12 @@ public class UIBroadcastTestActivity extends AppCompatActivity implements View.O
 
     public void showUIMultimediaActivity(String strName) {
         Intent intent = new Intent(UIBroadcastTestActivity.this, MultimediaActivity.class);
+        startActivity(intent);
+        Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showWebTestActivity(String strName) {
+        Intent intent = new Intent(UIBroadcastTestActivity.this, WebTestActivity.class);
         startActivity(intent);
         Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
     }
