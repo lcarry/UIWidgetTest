@@ -125,7 +125,16 @@
         <activity android:name="com.example.lcarry.multimedia.PlayVideoActivity" />
         <activity android:name="com.example.lcarry.webTest.WebViewTestActivity" />
         <activity android:name="com.example.lcarry.webTest.WebTestActivity" />
-        <activity android:name="com.example.lcarry.webTest.HttpUrlConnectionTestActivity"></activity>
+        <activity android:name="com.example.lcarry.webTest.HttpUrlConnectionTestActivity" />
+        <activity android:name="com.example.lcarry.threadtest.ThreadTestActivity" />
+
+        <service
+            android:name="com.example.lcarry.threadtest.service.MyService"
+            android:enabled="true"
+            android:exported="true" />
+        <service android:name="com.example.lcarry.threadtest.service.MyIntentService" />
+
+        <activity android:name="com.example.lcarry.materialdesign.MaterialDesignActivity"></activity>
     </application>
 
 </manifest>

@@ -24,8 +24,10 @@ import android.widget.Toast;
 import com.example.lcarry.contactstest.ContactsTestActivity;
 import com.example.lcarry.databasetest.DataBaseOperateActivity;
 import com.example.lcarry.datapersistance.filepersistance.UIFilePersistenceActivity;
+import com.example.lcarry.materialdesign.MaterialDesignActivity;
 import com.example.lcarry.multimedia.MultimediaActivity;
 import com.example.lcarry.notification.UINotificationActivity;
+import com.example.lcarry.threadtest.ThreadTestActivity;
 import com.example.lcarry.uiwidgettest.R;
 import com.example.lcarry.webTest.WebTestActivity;
 import com.example.lcarry.webTest.WebViewTestActivity;
@@ -80,6 +82,12 @@ public class UIBroadcastTestActivity extends AppCompatActivity implements View.O
 
         Button buttonWebTest = (Button)findViewById(R.id.button_webTest);
         buttonWebTest.setOnClickListener(this);
+
+        Button buttonThreadTest = (Button)findViewById(R.id.button_thread_test);
+        buttonThreadTest.setOnClickListener(this);
+
+        Button buttonMaterialDesign = (Button)findViewById(R.id.button_material_design);
+        buttonMaterialDesign.setOnClickListener(this);
     }
 
     @Override
@@ -143,8 +151,14 @@ public class UIBroadcastTestActivity extends AppCompatActivity implements View.O
                 showWebTestActivity("showWebTestActivity");
             }
             break;
-
-
+            case R.id.button_thread_test: {
+                showThreadTestActivity("showThreadTestActivity");
+            }
+            break;
+            case R.id.button_material_design: {
+                showMaterialDesignActivity("showMaterialDesignActivity");
+            }
+            break;
 
 
             default:
@@ -239,6 +253,18 @@ public class UIBroadcastTestActivity extends AppCompatActivity implements View.O
 
     public void showWebTestActivity(String strName) {
         Intent intent = new Intent(UIBroadcastTestActivity.this, WebTestActivity.class);
+        startActivity(intent);
+        Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showThreadTestActivity(String strName) {
+        Intent intent = new Intent(UIBroadcastTestActivity.this, ThreadTestActivity.class);
+        startActivity(intent);
+        Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showMaterialDesignActivity(String strName) {
+        Intent intent = new Intent(UIBroadcastTestActivity.this, MaterialDesignActivity.class);
         startActivity(intent);
         Toast.makeText(this, strName, Toast.LENGTH_SHORT).show();
     }

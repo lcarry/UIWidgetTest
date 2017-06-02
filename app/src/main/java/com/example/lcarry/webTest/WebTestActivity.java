@@ -15,6 +15,11 @@ import com.example.lcarry.broadcastTest.UIBroadcastTestActivity;
 import com.example.lcarry.multimedia.MultimediaActivity;
 import com.example.lcarry.uiwidgettest.R;
 
+import org.json.JSONObject;
+import org.xmlpull.v1.XmlPullParser;
+
+import javax.xml.parsers.SAXParserFactory;
+
 public class WebTestActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -27,6 +32,10 @@ public class WebTestActivity extends AppCompatActivity implements View.OnClickLi
 
         Button buttonHttpUrlConnection = (Button)findViewById(R.id.button_http_url_connection);
         buttonHttpUrlConnection.setOnClickListener(this);
+
+        //JSONObject
+        //XmlPullParser
+        //SAXParserFactory
     }
 
     @Override

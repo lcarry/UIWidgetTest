@@ -69,4 +69,18 @@
         android:text="WebTest"
         />
 
+    <Button
+        android:id="@+id/button_thread_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thread Test"
+        />
+
+    <Button
+        android:id="@+id/button_material_design"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Material Design"
+        />
+
 </LinearLayout>
