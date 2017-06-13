@@ -134,7 +134,12 @@
             android:exported="true" />
         <service android:name="com.example.lcarry.threadtest.service.MyIntentService" />
 
-        <activity android:name="com.example.lcarry.materialdesign.MaterialDesignActivity"></activity>
+        <activity android:name="com.example.lcarry.materialdesign.MaterialDesignActivity"
+            android:label="Fruits"
+            >
+
+
+        </activity>
     </application>
 
 </manifest>
